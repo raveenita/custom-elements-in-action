@@ -1,15 +1,16 @@
 class HeadingDisplayer extends HTMLElement {
   constructor() {
     super();
-    this.setHeadingStyle();
+
+    this.outerHTML = `<${this.getHeadingLevel()}>Heading < ${this.getHeadingLevel()}></code><${this.getHeadingLevel()}>`;
   }
 
-  setHeadingStyle() {
-    this.style.display = 'block';
-    this.style.fontSize = '2rem';
-    this.style.backgroundColor = 'tomato';
+  getName() {
+    return this.getAttribute('data-name');
+  }
 
-    this.textContent = `Seja bem vinda, ${this.getAttribute('name')}!`;
+  getHeadingLevel() {
+    return this.getAttribute('data-heading-level');
   }
 }
 
